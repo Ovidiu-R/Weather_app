@@ -1,16 +1,16 @@
-
-
 function main() {
-    const city = document.getElementById('city');
+    const location = document.getElementById('location');
     const submit = document.getElementById('submit');
     const date = document.getElementById('date');
-    
-    submit.addEventListener('click', queryWeatherAPI(city.value, date.value));
+    console.log('test');
+    submit.addEventListener('click', () => {
+        queryWeatherAPI(location.value, date.value);
+    });
 }
 
-async function queryWeatherAPI(city, date) {
+async function queryWeatherAPI(location, date) {
     try {
-        const response = await fetch ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/[location]/[date1]/[date2]?key=YOUR_API_KEY');
+        const response = await fetch (`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${date}?key=`);
         const data = await response.json();
         console.log(data);
     } catch (error) {
@@ -34,3 +34,5 @@ async function queryGiphyAPI(weatherType) {
         console.log ('Error fetching data:', error);
     }
 } 
+
+main();
