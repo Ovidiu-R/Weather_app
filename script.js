@@ -5,7 +5,8 @@ function main() {
     submit.addEventListener('click', async () => {
         const weatherData = await queryWeatherAPI(location.value, date.value);
         const processedData = processWeatherData(weatherData);
-        queryGiphyAPI(processedData.description);
+        // queryGiphyAPI(processedData.description);
+        displayWeatherReport(processedData);
     });
 }
 
@@ -22,24 +23,47 @@ async function queryWeatherAPI(location, date) {
 }
 
 function processWeatherData(data) {
-    if (data.days && data.days.length > 0) {
-        const description = data.days[0].description;
-        const temperature = data.days[0].temp;
+    if (!data || !data.days || data.days.length === 0) {
+        return undefined;
+    } else {
+        let description = '';
+        if (data.days[0].description == '') {
+            description = data.days[0].conditions;
+        } else {
+            description = data.days[0].description;
+        }
+        let temperature = data.days[0].temp;
         return {description, temperature};
     }
 }
 
-async function queryGiphyAPI(weatherType) {
-    try {
-        const apiKey = '';
-        const query = weatherType;
-        const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=1&offset=0&rating=g&lang=en`;
-        const response = await fetch (url);
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.log ('Error fetching data:', error);
+function displayWeatherReport(processedData) {
+    const outputs = document.getElementById('outputs');
+    outputs.innerHTML = '';
+    if (processedData == undefined) {
+        const invalidLocation = document.createElement('p');
+        invalidLocation.textContent = 'Please enter a valid location';
+        outputs.append(invalidLocation);
+    } else {
+        const temp = document.createElement('p');
+        temp.textContent = processedData.temperature;
+        const description = document.createElement('p');
+        description.textContent = processedData.description;
+        outputs.append(temp, description);
     }
-} 
+}
+
+// async function queryGiphyAPI(weatherType) {
+//     try {
+//         const apiKey = '';
+//         const query = weatherType;
+//         const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=1&offset=0&rating=g&lang=en`;
+//         const response = await fetch (url);
+//         const data = await response.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.log ('Error fetching data:', error);
+//     }
+// } 
 
 main();

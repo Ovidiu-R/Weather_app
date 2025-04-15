@@ -11,14 +11,14 @@ body {
     margin: 0;
 }
 
-div {
+#controls {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-div > * {
+#controls > * {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-right: 5px;
@@ -30,4 +30,17 @@ button {
     padding-right: 8px;
     background-color: rgb(51, 180, 212);
     border-radius: 8px;
+}
+
+#outputs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, +50%);
+}
+
+#outputs > * {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 5px;
 }
