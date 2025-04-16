@@ -33,6 +33,19 @@ button {
 }
 
 #outputs {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+    color: #333;
+    width: 380px;
+    padding: 20px;
+    gap: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,4 +56,66 @@ button {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-right: 5px;
+}
+
+#main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+#temperature {
+    display: flex;
+    align-items: baseline;
+    font-size: 48px;
+    font-weight: bold;
+    color: #f57c00; /* Orange color for temperature */
+}
+
+.temp-value {
+    font-size: 48px;
+}
+
+.temp-unit {
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+#real-feel {
+    display: inline-block; /* Ensure the entire content stays inline */
+    font-size: 16px; /* Adjust font size as needed */
+    color: #666; /* Optional: Style the text */
+    white-space: nowrap; /* Prevent wrapping to the next line */
+}
+
+#condition {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Details section */
+#details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.detail-value {
+    color: #f57c00; /* Orange color for values */
 }
