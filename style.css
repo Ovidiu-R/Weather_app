@@ -38,7 +38,7 @@ button {
     align-items: flex-start;
     font-family: Arial, sans-serif;
     color: #333;
-    width: 380px;
+    width: 400px;
     padding: 20px;
     gap: 40px;
     border: 1px solid #ddd;
@@ -60,9 +60,21 @@ button {
 
 #main-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     margin-bottom: 20px;
+    gap: 20px;
+}
+
+#weather-icon img {
+    width: 60px; /* Make the icon responsive */
+    height: auto;
+}
+
+#temps-condition {
+    display: flex;
+    flex-direction: column; /* Stack temperature, real feel, and condition */
+    align-items: flex-start;
 }
 
 #temperature {
