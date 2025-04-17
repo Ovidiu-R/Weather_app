@@ -33,23 +33,41 @@ function processWeatherData(data) {
             description = data.days[0].description;
         }
         let temperature = data.days[0].temp;
-        return {description, temperature};
+        let humidity = data.days[0].humidity;
+        let wind = data.days[0].windspeed;
+        let precipitation = data.days[0].precipprob;
+        let uvIndex = data.days[0].uvindex;
+        return {description, temperature, humidity, wind, precipitation, uvIndex};
     }
 }
 
 function displayWeatherReport(processedData) {
     const outputs = document.getElementById('outputs');
-    outputs.innerHTML = '';
+    // outputs.innerHTML = '';
     if (processedData == undefined) {
         const invalidLocation = document.createElement('p');
         invalidLocation.textContent = 'Please enter a valid location';
         outputs.append(invalidLocation);
     } else {
-        const temp = document.createElement('p');
-        temp.textContent = processedData.temperature;
-        const description = document.createElement('p');
-        description.textContent = processedData.description;
-        outputs.append(temp, description);
+        const temp = document.getElementById('temp-value');
+        if (temp) temp.textContent = processedData.temperature;
+        // temp.textContent = processedData.temperature;
+        const condition = document.getElementById('condition');
+        if (condition) condition.textContent = processedData.description;
+        // condition.textContent = processedData.description;
+        const wind = document.getElementById('windspeed');
+        if (wind) wind.textContent = processedData.wind;
+        // wind.textContent = processedData.wind;
+        const humidity = document.getElementById('humidity');
+        if (humidity) humidity.textContent = processedData.humidity;
+        // humidity.textContent = processedData.humidity;
+        const precipitation = document.getElementById('precipitation');
+        if (precipitation) precipitation.textContent = processedData.precipitation;
+        // precipitation.textContent = processedData.precipitation;
+        const uvIndex = document.getElementById('uvindex');
+        if (uvIndex) uvIndex.textContent = processedData.uvIndex;
+        // uvIndex.textContent = processedData.uvIndex;
+        // outputs.append(temp, condition, wind, humidity, precipitation, uvIndex);
     }
 }
 
@@ -66,4 +84,6 @@ function displayWeatherReport(processedData) {
 //     }
 // } 
 
-main();
+document.addEventListener('DOMContentLoaded', () => {
+    main();
+});
