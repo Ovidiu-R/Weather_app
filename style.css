@@ -52,6 +52,10 @@ button {
     transform: translate(-50%, +50%);
 }
 
+.hidden {
+    display: none !important; /* Hide the element */
+}
+
 #outputs > * {
     padding-top: 5px;
     padding-bottom: 5px;
