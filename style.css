@@ -35,7 +35,7 @@ button {
 #outputs {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     font-family: Arial, sans-serif;
     color: #333;
     width: 400px;
@@ -62,12 +62,27 @@ button {
     margin-right: 5px;
 }
 
+#unit-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+#unit-toggle label {
+    cursor: pointer;
+}
+
 #main-info {
     display: flex;
     flex-direction: row;
+    min-width: 125px;
     align-items: flex-start;
     margin-bottom: 20px;
-    gap: 20px;
+    gap: 14px;
 }
 
 #weather-icon img {
@@ -106,7 +121,7 @@ button {
 }
 
 #condition {
-    font-size: 18px;
+    font-size: 12px;
     font-weight: bold;
     color: #333;
     margin-top: 10px;
@@ -117,7 +132,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    min-width: 150px;
 }
 
 .detail-item {
