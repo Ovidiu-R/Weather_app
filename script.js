@@ -17,14 +17,13 @@ function main() {
     submit.addEventListener('click', async () => {
         const weatherData = await queryWeatherAPI(location.value, date.value, currentUnit);
         const processedData = processWeatherData(weatherData);
-        // queryGiphyAPI(processedData.description);
         displayWeatherReport(processedData);
     });
 }
 
 async function queryWeatherAPI(location, date, unitGroup = 'metric') {
     try {
-        const apiKey = '';
+        const apiKey = 'DN98JBDTZQV72SU3DULMAZF3R';
         const unitParam = unitGroup === 'metric' ? '&unitGroup=metric' : '';
         const response = await fetch (`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${date}?key=${apiKey}${unitParam}`);
         const data = await response.json();
@@ -63,7 +62,6 @@ function displayWeatherReport(processedData) {
     // Clear only the dynamically generated content
     const existingContent = document.querySelectorAll('#outputs > :not(#unit-toggle)');
     existingContent.forEach(element => element.remove());
-    // outputs.innerHTML = ''; // Clear previous content
 
     if (processedData == undefined) {
         const invalidLocation = document.createElement('p');
@@ -152,24 +150,11 @@ function displayWeatherReport(processedData) {
     }
 }
 
-// async function queryGiphyAPI(weatherType) {
-//     try {
-//         const apiKey = '';
-//         const query = weatherType;
-//         const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=1&offset=0&rating=g&lang=en`;
-//         const response = await fetch (url);
-//         const data = await response.json();
-//         console.log(data);
-//     } catch (error) {
-//         console.log ('Error fetching data:', error);
-//     }
-// } 
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure the Celsius radio button is checked by default
     const celsiusRadio = document.querySelector('input[name="unit"][value="metric"]');
     celsiusRadio.checked = true;
 
-    // Initialize the main function
     main();
 });

@@ -53,7 +53,7 @@ button {
 }
 
 .hidden {
-    display: none !important; /* Hide the element */
+    display: none !important;
 }
 
 #outputs > * {
@@ -86,13 +86,13 @@ button {
 }
 
 #weather-icon img {
-    width: 60px; /* Make the icon responsive */
+    width: 60px;
     height: auto;
 }
 
 #temps-condition {
     display: flex;
-    flex-direction: column; /* Stack temperature, real feel, and condition */
+    flex-direction: column;
     align-items: flex-start;
 }
 
@@ -101,7 +101,7 @@ button {
     align-items: baseline;
     font-size: 48px;
     font-weight: bold;
-    color: #f57c00; /* Orange color for temperature */
+    color: #f57c00;
 }
 
 .temp-value {
@@ -114,10 +114,10 @@ button {
 }
 
 #real-feel {
-    display: inline-block; /* Ensure the entire content stays inline */
-    font-size: 16px; /* Adjust font size as needed */
-    color: #666; /* Optional: Style the text */
-    white-space: nowrap; /* Prevent wrapping to the next line */
+    display: inline-block; 
+    font-size: 16px; 
+    color: #666; 
+    white-space: nowrap;
 }
 
 #condition {
@@ -148,5 +148,5 @@ button {
 }
 
 .detail-value {
-    color: #f57c00; /* Orange color for values */
+    color: #f57c00;
 }
